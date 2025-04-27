@@ -141,3 +141,4 @@ widgetsnbextension==4.0.13
 
 gunicorn
 psycopg2-binary
+pillow

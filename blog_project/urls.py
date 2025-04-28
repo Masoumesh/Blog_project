@@ -22,15 +22,10 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.conf.urls.static import static
 
-def home(request):
-    return HttpResponse('<h1>سلام! خوش اومدی به پروژه‌ی من</h1>')
-
-
-
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('', home), 
-    path('blog/', include('blog.urls'))
+    path("admin/", admin.site.urls), 
+    path('api/v1/', include('blog.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 # serving static and media for development

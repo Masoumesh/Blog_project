@@ -44,12 +44,26 @@ INSTALLED_APPS = [
     "comment.apps.CommentConfig",
     "accounts.apps.AccountsConfig",
     "rest_framework",
+    'rest_framework_simplejwt',
+    'drf_spectacular',
 ]
 
 REST_FRAMEWORK = {
 "DEFAULT_PERMISSION_CLASSES": [
 "rest_framework.permissions.AllowAny",
 ],
+"DEFAULT_AUTHENTICATION_CLASSES": (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+"DEFAULT_SCHEMA_CLASS": 'drf_spectacular.openapi.AutoSchema'
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Blog API',
+    'DESCRIPTION': 'Blog ',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
 }
 
 MIDDLEWARE = [

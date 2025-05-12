@@ -1,9 +1,9 @@
-from django.urls import path
-from .views import RegisterView, LoginView, ProfileView, LogoutView
+from django.urls import path, include
+
+app_name = "accounts"
 
 urlpatterns = [
-    path('register/', RegisterView.as_view(), name='register'),
-    path('login/', LoginView.as_view(), name='login'),
-    path('profile/', ProfileView.as_view(), name='profile'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('', include('django.contrib.auth.urls')),
+    path('v1/', include('accounts.api.v1.urls')), 
+    
 ]
